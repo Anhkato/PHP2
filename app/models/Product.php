@@ -23,10 +23,10 @@ class Product extends BaseModel{
         return $this->loadRow([$id]);
     }
 
-    public function updateProduct($id, $name, $price, $category_id){
-        $sql = "UPDATE $this->table SET name = ?, price = ?, category_id = ? WHERE id = ?";
+    public function updateProduct($id, $name, $price,$img_thumbnail, $category_id){
+        $sql = "UPDATE $this->table SET name = ?, price = ?, img_thumbnail= ?, category_id = ? WHERE id = ?";
         $this->setQuery($sql);
-        return $this->execute([$name, $price,$category_id, $id]);
+        return $this->execute([$name, $price,$img_thumbnail,$category_id, $id]);
     }
 
     public function deleteProduct($id){

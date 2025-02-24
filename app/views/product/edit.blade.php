@@ -13,7 +13,7 @@
 <span style="...">{{$_SESSION['success']}}</span>
 @endif
 <a href="{{route('list-product/')}}" class="btn btn-dark">Quay lại</a>
-<form action="{{route('edit-product/'. $product->id )}}" method="POST">
+<form action="{{route('edit-product/'. $product->id )}}" method="POST" enctype="multipart/form-data">
 
     <table>
         <tr>
@@ -23,6 +23,10 @@
         <tr>
             <td>Price</td>
             <td><input type="text" name="price" value="{{$product->price}}"></td>
+        </tr>
+        <tr>
+            <td>ảnh</td>
+            <td><input type="file" name="img_thumbnail" ></td>
         </tr>
         <tr>
             <td>Category</td>
@@ -37,7 +41,8 @@
                 </select>
             </td>
         </tr>
-        <input type="submit" name="edit" class="btn btn-success" value="Sửa">
+        
     </table>
+    <input type="submit" name="edit" class="btn btn-success" value="Sửa">
 </form>
 @endsection
